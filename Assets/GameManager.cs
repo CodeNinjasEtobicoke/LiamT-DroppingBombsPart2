@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject title;
     private Vector2 screenBounds;
 
-    public GameObject 
+    //public GameObject 
     
   
     // Start is called before the first frame update
