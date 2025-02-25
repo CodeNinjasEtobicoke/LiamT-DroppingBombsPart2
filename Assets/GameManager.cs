@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     private Spawner spawner;
     public GameObject title;
     private Vector2 screenBounds;
+
+    public GameObject 
     
   
     // Start is called before the first frame update
