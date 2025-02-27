@@ -8,6 +8,11 @@ public class GameManager : MonoBehaviour
     public GameObject title;
     private Vector2 screenBounds;
 
+    [Header("Player")]
+    public GameObject playerPrefab;
+    private GameObject player;
+    private bool gameStarted = false;
+
     //public GameObject 
     
   
@@ -39,13 +44,29 @@ public class GameManager : MonoBehaviour
             }
 
         }
-        
+        if (!gameStarted)
+        {
+            if (Input.anyKeyDown)
+            {
+                ResetGame();
+            }
+        }
     }
 
     private void Awake()
     {
         spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
         screenBounds =Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+
+
+    }
+
+    void ResetGame()
+    {
+        spawner.active = true;
+        title.SetActive(false);
+        player = Instantiate(playerPrefab, new Vector3(0, 0, 0), playerPrefab.transform.rotation);
+        gameStarted = true;
 
 
     }
