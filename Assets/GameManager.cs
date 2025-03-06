@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public GameObject title;
     private Vector2 screenBounds;
 
+    public GameObject splash;
+
     [Header("Player")]
     public GameObject playerPrefab;
     private GameObject player;
@@ -21,6 +23,8 @@ public class GameManager : MonoBehaviour
     {
         spawner.active = false;
         title.SetActive(true);
+        splash.SetActive(false);
+
         
     }
 
@@ -67,7 +71,7 @@ public class GameManager : MonoBehaviour
         title.SetActive(false);
         player = Instantiate(playerPrefab, new Vector3(0, 0, 0), playerPrefab.transform.rotation);
         gameStarted = true;
-
+        splash.SetActive(false);
 
     }
 }
