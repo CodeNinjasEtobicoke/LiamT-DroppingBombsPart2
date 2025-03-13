@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     public TMP_Text bestScoreText;
     private bool beatBestScore;
 
+    private bool smokeCleared = true;
+
+    public float splashScreenDelayTime = 3f;
 
     private void Awake()
     {
@@ -50,8 +53,9 @@ public class GameManager : MonoBehaviour
     {
         if (!gameStarted)
         {
-            if (Input.anyKeyDown)
+            if (Input.anyKeyDown && smokeCleared)
             {
+                smokeCleared = false;
                 ResetGame();
             }
         }
@@ -100,7 +104,17 @@ public class GameManager : MonoBehaviour
         spawner.active = false;
         gameStarted = false;
 
+        Invoke("SplashScreen", splashScreenDelayTime);
+           
+
+    }
+
+    void SplashScreen()
+    {
+        smokeCleared = true;
         splash.SetActive(true);
+
+
         
         if(score > bestScore)
         {
@@ -108,8 +122,6 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("BestScore", bestScore);
             beatBestScore = true;
             bestScoreText.text = "Best Score: " + bestScore.ToString();
-
         }
-
     }
 }

@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &145987625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,6 +694,7 @@ MonoBehaviour:
   scoreText: {fileID: 1583770234}
   pointsWorth: 1
   bestScoreText: {fileID: 1765772252}
+  splashScreenDelayTime: 1.2
 --- !u!4 &719730270
 Transform:
   m_ObjectHideFlags: 0
